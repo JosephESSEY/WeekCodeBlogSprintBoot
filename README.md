@@ -1,129 +1,131 @@
-# API Blog Personnel - Spring Boot
-
-## Description
-
-Cette API Spring Boot fournit un système complet de gestion de blog personnel comprenant :
-
-* gestion des utilisateurs avec authentification JWT
-* gestion des articles
-* gestion des catégories
-* gestion des commentaires
-* pagination
-* recherche textuelle
-
-Elle est développée avec **Spring Boot** et **Spring Data JPA** (ORM).
+Great — here’s a clear, professional **README** in English for the **Spring Boot** repository of your Personal Blog project, including ORM usage as requested:
 
 ---
 
-## Fonctionnalités
+# Blog Personal API - Spring Boot
 
-* Authentification sécurisée via JWT
-* CRUD complet sur les articles
-* CRUD complet sur les catégories
-* Ajout, édition, suppression de commentaires
-* Pagination des articles
-* Recherche plein texte sur les titres et le contenu
-* Gestion des rôles utilisateurs (`ADMIN`, `AUTHOR`, `READER`)
+Welcome to the **Blog Personal** project developed with Spring Boot. This API provides a scalable and secure blogging platform with full CRUD functionality for articles, users, categories, and comments.
 
----
+## Project Goals
 
-## Stack technique
+* Enable users to create, read, update, and delete blog articles
+* Manage users, roles, and permissions
+* Organize articles by category
+* Allow visitors to comment on articles
+* Deliver a robust, secure, and well-structured API
 
-* Java 17+
-* Spring Boot 3.x
-* Spring Security
-* Spring Data JPA
-* JWT
-* PostgreSQL ou MySQL
+## Main Features
 
----
+* User authentication and authorization with Spring Security + JWT
+* CRUD operations for **Articles**
+* CRUD operations for **Users**
+* CRUD operations for **Comments**
+* CRUD operations for **Categories**
+* JPA/Hibernate ORM for database persistence
+* Input validation with Bean Validation (Jakarta Validation)
+* Exception handling with Spring ControllerAdvice
+* API pagination and filtering
+* CORS and other security features
+
+## Database Tables
+
+The API uses the following relational database tables:
+
+* **users**
+
+  * id
+  * name
+  * email
+  * password (hashed)
+  * role
+  * created\_at
+
+* **articles**
+
+  * id
+  * title
+  * content
+  * image
+  * created\_at
+  * updated\_at
+  * category\_id (foreign key)
+  * user\_id (foreign key, author)
+
+* **categories**
+
+  * id
+  * name
+  * description
+
+* **comments**
+
+  * id
+  * content
+  * created\_at
+  * user\_id (author)
+  * article\_id (target)
+
+## Technologies Used
+
+* Java
+* Spring Boot
+* Spring Data JPA (Hibernate)
+* PostgreSQL or MySQL
+* Spring Security + JWT
+* Maven
+* JUnit / Mockito for testing
 
 ## Installation
 
-1. **Cloner le dépôt**
+1. Clone the repository:
 
 ```bash
-git clone https://github.com/votre-utilisateur/api-blog-springboot.git
-cd api-blog-springboot
+git clone https://github.com/your-user/blog-personal-springboot.git
 ```
 
-2. **Configurer la base de données**
-   Dans `src/main/resources/application.properties` :
+2. Import the project in your IDE (IntelliJ, Eclipse, etc.)
+
+3. Configure application properties in `src/main/resources/application.properties` or `application.yml`:
 
 ```properties
-spring.datasource.url=jdbc:postgresql://localhost:5432/blogdb
-spring.datasource.username=postgres
-spring.datasource.password=
+spring.datasource.url=jdbc:postgresql://localhost:5432/your_db
+spring.datasource.username=your_user
+spring.datasource.password=your_password
 spring.jpa.hibernate.ddl-auto=update
 spring.jpa.show-sql=true
+jwt.secret=your_jwt_secret
 ```
 
-3. **Configurer la clé JWT**
-   Toujours dans `application.properties` :
-
-```properties
-jwt.secret=YOUR_SECRET_KEY
-jwt.expiration=3600000
-```
-
-4. **Construire le projet**
+4. Build the project:
 
 ```bash
-./mvnw clean install
+mvn clean install
 ```
 
-5. **Lancer le projet**
+5. Run the application:
 
 ```bash
-./mvnw spring-boot:run
+mvn spring-boot:run
 ```
 
----
+## Testing
 
-## Endpoints principaux
-
-* `POST /api/auth/register` : inscription d’un utilisateur
-* `POST /api/auth/login` : connexion d’un utilisateur
-* `GET /api/articles` : liste des articles avec pagination
-* `GET /api/articles/search?query=motcle` : recherche d’articles
-* `GET /api/articles/{id}` : consulter un article
-* `POST /api/articles` : créer un article
-* `PUT /api/articles/{id}` : mettre à jour un article
-* `DELETE /api/articles/{id}` : supprimer un article
-* `GET /api/categories` : lister les catégories
-* `POST /api/comments` : ajouter un commentaire
-* `GET /api/articles/{id}/comments` : lister les commentaires liés à un article
-
----
-
-## Tests
-
-Lancer les tests unitaires et d’intégration :
+Run the tests with:
 
 ```bash
-./mvnw test
+mvn test
 ```
 
----
+## Notes
 
-## Sécurité
+* This Spring Boot backend uses **Spring Data JPA (Hibernate)** for all database persistence.
+* Input validation, security, and exception handling are properly implemented.
+* This project is part of three separate repositories:
 
-* Authentification JWT sécurisée
-* Filtres de sécurité avec Spring Security
-* Validation des entrées via Spring Validation
-
----
-
-## Contribuer
-
-1. Forker le projet
-2. Créer une branche
-3. Soumettre une pull request
+  * Laravel (PHP)
+  * Express.js (Node)
+  * Spring Boot (Java)
 
 ---
 
-## License
-
-MIT License
-
----
+If you want, I can help you document each route of these APIs next — just let me know!
