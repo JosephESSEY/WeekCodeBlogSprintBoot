@@ -1,7 +1,3 @@
-Great — here’s a clear, professional **README** in English for the **Spring Boot** repository of your Personal Blog project, including ORM usage as requested:
-
----
-
 # Blog Personal API - Spring Boot
 
 Welcome to the **Blog Personal** project developed with Spring Boot. This API provides a scalable and secure blogging platform with full CRUD functionality for articles, users, categories, and comments.
@@ -127,5 +123,3 @@ mvn test
   * Spring Boot (Java)
 
 ---
-
-If you want, I can help you document each route of these APIs next — just let me know!
