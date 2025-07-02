@@ -1,4 +1,4 @@
-# Blog Personal API - Spring Boot
+# Blog Personal API | Spring Boot
 
 Welcome to the **Blog Personal** project developed with Spring Boot. This API provides a scalable and secure blogging platform with full CRUD functionality for articles, users, categories, and comments.
 
